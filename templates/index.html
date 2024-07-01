@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The bigbutthippo420 Foundation ©</title>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+    <p>The bigbutthippo420 Foundation ©</p>
+    <h1>BITMOJI GET 😂😂😂😂😂😂😂😂</h1>
+    <form action="/" method="post">
+        <input type="text" name="snap" id="snap" placeholder="Snapchat Username" required />
+        <button type="submit">Submit</button>
+    </form>
+    <div class="image-container">
+        {% if bitmoji %}
+            <img src="{{ bitmoji }}" alt="Bitmoji of {{ snap }}" class="bitmoji">
+            <img src="https://www.pngall.com/wp-content/uploads/15/Jail-Cell-PNG-Picture.png" class="jailcell">
+        {% else %}
+            <img src="{{ url_for('static', filename='img/error_img.png') }}" alt="Error" class="bitmoji">
+        {% endif %}
+    </div>
+</body>
+</html>
