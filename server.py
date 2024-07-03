@@ -24,5 +24,11 @@ def index():
             bitmoji=None
         )
 
+@app.route('/original')
+def original():
+    return render_template(
+        'index_1.html'
+    )
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)

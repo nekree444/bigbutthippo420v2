@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <form id="timestampForm">
+    <label for="datetime">Enter a date and time:</label>
+    <input id="datetime" type="datetime-local" name="datetime" />
+    <button type="submit" onclick="to_unix()">𝓬𝓵𝓲𝓬𝓴 𝓶𝓮 ❤️ 𝓪𝓯𝓽𝓮𝓻 𝔂𝓸𝓾 𝓱❤️𝓿𝓮 𝓬𝓱𝓸𝓼𝓮𝓷 𝓭𝓪𝓽𝓮</button>
+  </form>
+  <p id="output">Look here for result ❤️</p>
+  <img class="bg"
+    src="https://media.discordapp.net/attachments/647615056426696705/1132195303928385576/IMG_0607.jpg?width=623&height=415">
+  <script>
+    function to_unix() {
+        event.preventDefault();
+        var datetimeStr = document.getElementById('datetime').value;
+        var dateObj = new Date(datetimeStr);
+        var timestamp = Math.floor(dateObj.getTime() / 1000);
+        document.getElementById('output').innerText = '<t:' + timestamp + ':R>';
+      }
+  </script>
+</body>
+</html>
