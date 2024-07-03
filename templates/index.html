@@ -16,11 +16,24 @@
     <div class="image-container">
         {% if bitmoji %}
             <img src="{{ bitmoji }}" alt="Bitmoji of {{ snap }}" class="bitmoji">
-            <img src="https://www.pngall.com/wp-content/uploads/15/Jail-Cell-PNG-Picture.png" class="jailcell">
-            <a href="{{ bitmoji }}" download="{{ snap }}.webp" class="download-button">Download webp😹😹😹</a>
+            <img src="https://www.pngall.com/wp-content/uploads/15/Jail-Cell-PNG-Picture.png" class="jailcell" style="display:none;">
+            <button id="arrestButton" class="release-button">Arrest</button>
         {% else %}
             <img src="{{ url_for('static', filename='img/error_img.png') }}" alt="Error" class="bitmoji">
         {% endif %}
     </div>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const arrestButton = document.getElementById('arrestButton');
+        const jailCellImage = document.querySelector('.jailcell');
+        const jailButton = document.querySelector('.release-button');
+        arrestButton.addEventListener('click', function() {
+            jailCellImage.style.display = jailCellImage.style.display === 'none' ? '' : 'none';
+            jailButton.style.bottom = jailButton.style.bottom === '375px' ? '0px' : '375px';
+            const buttonText = arrestButton.textContent === 'Release' ? 'Arrest' : 'Release';
+            arrestButton.textContent = buttonText;
+        });
+    });
+</script>
 </html>
