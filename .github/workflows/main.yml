@@ -7,7 +7,7 @@ jobs:
   deploy:
     name: Deploying bbh2
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'bump version')"
+    # if: "contains(github.event.head_commit.message, 'bump version')"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
       - name: Authenticate gcloud CLI
         uses: google-github-actions/auth@v2
         with:
-          service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
+          credentials_json: ${{ secrets.GCP_SA_KEY_JSON }}
 
       # Set up Google Cloud SDK
       - name: Setting up Google Cloud SDK
