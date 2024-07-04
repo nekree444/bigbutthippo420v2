@@ -1,4 +1,4 @@
-name: Deploy bbh2 to cloud run
+name: Deploy bbh2 to Cloud Run
 on:
   push:
     branches:
@@ -12,26 +12,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Build and push image to Google Container 
-      - name: Setting up
+      # Authenticate gcloud CLI
+      - name: Authenticate gcloud CLI
+        uses: google-github-actions/auth@master
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
+
+      # Set up Google Cloud SDK
+      - name: Setting up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
         with:
-          version: 'latest'
-          service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
-          service_account_email: "git-actions@bigbutthippo420v2.iam.gserviceaccount.com"
           project_id: bigbutthippo420v2
 
-      - name: Building ()
-        run: |-
+      - name: Building
+        run: |
           gcloud builds submit \
             --tag gcr.io/bigbutthippo420v2/bigbutthippo420-2-0
 
-      # Setup gcloud CLI
-      - name: Deploy ()
+      # Deploy to Cloud Run
+      - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@main
         with:
           service: bigbutthippo420-2-0
           image: gcr.io/bigbutthippo420v2/bigbutthippo420-2-0
           region: us-east1
           credentials: ${{ secrets.GCP_SA_KEY_JSON }}
-          project_id: bigbutthippo420v2
