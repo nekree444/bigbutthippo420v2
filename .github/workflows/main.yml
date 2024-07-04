@@ -14,9 +14,8 @@ jobs:
 
       # Build and push image to Google Container 
       - name: Setting up
-        uses: google-github-actions/setup-gcloud
+        uses: google-github-actions/setup-gcloud@latest
         with:
-          version: 'latest'
           service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
           service_account_email: "git-actions@bigbutthippo420v2.iam.gserviceaccount.com"
           project_id: bigbutthippo420v2
