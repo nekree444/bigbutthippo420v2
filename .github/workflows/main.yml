@@ -14,7 +14,7 @@ jobs:
 
       # Build and push image to Google Container 
       - name: Setting up
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud
         with:
           version: 'latest'
           service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
