@@ -14,7 +14,7 @@ jobs:
 
       # Authenticate gcloud CLI
       - name: Authenticate gcloud CLI
-        uses: google-github-actions/auth@master
+        uses: google-github-actions/auth@v2
         with:
           service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
 
