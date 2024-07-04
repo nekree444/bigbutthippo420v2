@@ -38,14 +38,14 @@ def instagram():
     )
 
 @app.route('/snap')
-def instagram():
+def snapchat():
     return render_template(
         'redirects.html',
         link='https://snapchat.com/add/thomasm444'
     )
 
 @app.route('/discord')
-def instagram():
+def discord():
     return render_template(
         'redirects.html',
         link='https://discord.gg/UKX6GwX2x6'
